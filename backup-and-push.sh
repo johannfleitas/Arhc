@@ -64,4 +64,4 @@ if [ -d ".git" ]; then
 else
     echo -e "\n${YELLOW}AVISO: Esta carpeta no es un repositorio de Git.${NC}"
     echo "Para poder subir los cambios, primero inicializa Git y conéctalo a GitHub."
-fi
+fi 
