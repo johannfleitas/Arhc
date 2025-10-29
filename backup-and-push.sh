@@ -41,20 +41,24 @@ done
 echo -e "\n${GREEN}¡Copia de seguridad local completada!${NC}"
 
 # --- SECCIÓN DE GIT ---
-# Comprobar si estamos en un repositorio de Git
 if [ -d ".git" ]; then
     echo -e "\n${GREEN}--- Subiendo cambios a GitHub ---${NC}"
-    # Añadir todos los cambios al área de preparación de Git
-    git add .
+
+    # Mostrar archivos que se van a añadir (verboso)
+    echo -e "\nArchivos que se agregarán al commit:"
+    git add -v . || { echo -e "${YELLOW}Error al agregar archivos.${NC}"; exit 1; }
+
     # Comprobar si hay cambios para commitear
     if git diff --staged --quiet; then
-        echo "No hay cambios que subir. ¡Tu repositorio ya está actualizado!"
+        echo -e "\n${YELLOW}No hay cambios que subir. ¡Tu repositorio ya está actualizado!${NC}"
     else
-        # Crear un commit con un mensaje que incluye la fecha y hora
+        # Crear un commit con fecha y hora
         COMMIT_MESSAGE="Actualización de configuraciones $(date +'%Y-%m-%d %H:%M:%S')"
         git commit -m "$COMMIT_MESSAGE"
-        # Subir los cambios a la rama principal del repositorio remoto
-        git push
+        echo -e "${GREEN}Commit creado: $COMMIT_MESSAGE${NC}"
+
+        # Subir cambios al repositorio remoto
+        git push || { echo -e "${YELLOW}Error al hacer push. Revisa tu conexión o configuración de Git.${NC}"; exit 1; }
         echo -e "\n${GREEN}¡Cambios subidos a GitHub exitosamente!${NC}"
     fi
 else
