@@ -16,26 +16,27 @@ NC='\033[0m'
 echo -e "${GREEN}--- Iniciando copia de seguridad de configuraciones ---${NC}"
 
 #Rutas de origen de mis config en hyperland
-PACMAN_CONF_ORIGEN="/etc/pacman.conf"
-HYPRLAND_CONF_ORIGEN="$HOME/.config/hypr/hyprland.conf"
-KITTY_CONF_ORIGEN="$HOME/.config/kitty/kitty.conf"
-
-DESTINO_ETC="configs/etc"
-DESTINO_HYPRLAND="configs/hyprland"
-DESTINO_KITTY="configs/kitty"
+CONFIGS=(
+    "/etc/pacman.conf:configs/etc"
+    "$HOME/.config/hypr/hyprland.conf:configs/hyprland"
+    "$HOME/.config/hypr/hyprpaper.conf:configs/hyprland"
+    "$HOME/.config/kitty/kitty.conf:configs/kitty"
+    "$HOME/.config/waybar/config.jsonc:configs/waybar"
+    "$HOME/.config/waybar/style.css:configs/waybar"
+)
 
 # Crear directorios de destino si no existen
-mkdir -p "$DESTINO_ETC"
-mkdir -p "$DESTINO_HYPRLAND"
-mkdir -p "$DESTINO_KITTY"
+for entry in "${CONFIGS[@]}"; do
+    ORIGEN="${entry%%:*}"   # Parte antes de los dos puntos
+    DESTINO_DIR="${entry##*:}"  # Parte después de los dos puntos
 
-# Copiar los archivos de configuración mostrando qué se está haciendo
-echo "Copiando pacman.conf..."
-cp -v "$PACMAN_CONF_ORIGEN" "$DESTINO_ETC/"
-echo "Copiando hyprland.conf..."
-cp -v "$HYPRLAND_CONF_ORIGEN" "$DESTINO_HYPRLAND/"
-echo "Copiando kitty.conf..."
-cp -v "$KITTY_CONF_ORIGEN" "$DESTINO_KITTY/"
+    # Crear directorio si no existe (mkdir -p ya es seguro)
+    mkdir -p "$DESTINO_DIR"
+
+    # Copiar archivo
+    echo "Copiando $(basename "$ORIGEN") a $DESTINO_DIR..."
+    cp -v "$ORIGEN" "$DESTINO_DIR/"
+done
 
 echo -e "\n${GREEN}¡Copia de seguridad local completada!${NC}"
 
