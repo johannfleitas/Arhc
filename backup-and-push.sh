@@ -24,7 +24,7 @@ CONFIGS=(
     "$HOME/.config/waybar/config.jsonc:configs/waybar"
     "$HOME/.config/waybar/style.css:configs/waybar"
     "$HOME/.config/eww/eww.scss:configs/eww"
-    "$HOME/.config/eww/eww.yuck:configs/eww"
+    "$HOME/.config/eww/eww.yuck:configs/eww" 
 )
 
 # Crear directorios de destino si no existen
