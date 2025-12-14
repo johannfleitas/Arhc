@@ -1,0 +1,42 @@
+* {
+    all:  unset;
+}
+
+window {
+    background:  transparent;
+}
+
+.clock-container {
+    background:  transparent;
+}
+
+.time {
+    font-size: 32px;
+    font-family:  "JetBrains Mono";
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: -12px;
+}
+
+.date {
+    font-size: 14px;
+    font-family: "JetBrains Mono";
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 3px;
+    margin-bottom:10px;
+}
+
+.calendar {
+    background: rgba(30, 30, 46, 0.95);
+    border-radius:15px;
+    padding: 2px;
+    margin-top: -20px;
+    color: #cdd6f4;
+    font-family: "JetBrains Mono";
+    font-size: 12px;
+}
+
+.calendar:selected {
+    background: #89b4fa;
+    color: #1e1e2e;
+    border-radius: 5px;
+}

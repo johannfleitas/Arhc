@@ -1,0 +1,29 @@
+(defpoll time :interval "1s" "date '+%H:%M'")
+(defpoll date :interval "60s" "date '+%A, %d %B'")
+
+(defvar show-calendar false)
+  
+(defwindow clock
+  :monitor 0
+  :geometry (geometry :x "20px"
+                      :y "20px"
+                      :width "75px"
+                      :height "45px"
+                      :anchor "top left")
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  (eventbox :onhover "eww update show-calendar=true"
+            :onhoverlost "eww update show-calendar=false"
+    (box :class "clock-container"
+         :orientation "vertical"
+         :valign "start"
+         :halign "start"
+         :space-evenly false
+         :space 0
+      (label :class "time" :text time)
+      (label :class "date" :text date)
+      (revealer :transition "crossfade"
+                :reveal show-calendar
+                :duration "450ms"
+        (calendar :class "calendar")))))

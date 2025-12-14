@@ -7,16 +7,18 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
         "tray",
         "custom/media"
     ],
 
     "modules-center": [
-        "clock"
+        "custom/pacman"
     ],
+
+    "custom/pacman": {
+        "exec": "~/.config/waybar/pacman-ghost.sh",
+        "format": "{}"
+    },
     
     "modules-right": [
         "temperature",
@@ -42,6 +44,19 @@
     //         "default": ""
     //     }
     // },
+    "hyprland/workspaces": {
+        "format":  "{icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces":  {
+            "*": 5
+        },
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰊠"
+        }
+    },
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
