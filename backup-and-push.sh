@@ -37,7 +37,7 @@ for entry in "${CONFIGS[@]}"; do
 
     # Copiar archivo
     echo "Copiando $(basename "$ORIGEN") a $DESTINO_DIR..."
-    cp -v "$ORIGEN" "$DESTINO_DIR/"
+    cp -v "$ORIGEN" "$DESTINO_DIR/" 
 done
 
 echo -e "\n${GREEN}¡Copia de seguridad local completada!${NC}"
