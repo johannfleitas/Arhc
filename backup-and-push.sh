@@ -25,6 +25,8 @@ CONFIGS=(
     "$HOME/.config/waybar/style.css:configs/waybar"
     "$HOME/.config/eww/eww.scss:configs/eww"
     "$HOME/.config/eww/eww.yuck:configs/eww"
+    "$HOME/.config/alacritty/alacritty.toml:configs/alacritty"
+    "$HOME/.config/rofi/config.rasi:configs/rofi"
 )
 
 # Crear directorios de destino si no existen

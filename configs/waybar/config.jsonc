@@ -44,16 +44,25 @@
     //         "default": ""
     //     }
     // },
+    // "hyprland/workspaces": {
+    //     "format":  "{icon}",
+    //     "on-click": "activate",
+    //     "all-outputs": true,
+    //     "persistent-workspaces":  {
+    //         "*": 5
+    //     },
+    //     "format-icons": {
+    //         "active": "󰮯",
+    //         "default": "󰊠"
+    //     }
+    // },
     "hyprland/workspaces": {
-        "format":  "{icon}",
+        "format": " ",
         "on-click": "activate",
+        "tooltip": false,
         "all-outputs": true,
-        "persistent-workspaces":  {
-            "*": 5
-        },
-        "format-icons": {
-            "active": "󰮯",
-            "default": "󰊠"
+        "persistent-workspaces": {
+        "*": 5
         }
     },
 

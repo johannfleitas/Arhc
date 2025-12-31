@@ -1,0 +1,33 @@
+[window]
+padding = { x = 5, y = 10 }
+opacity = 0.4
+decorations = "none"
+
+[colors.primary]
+background = '#131618'
+foreground = '#ffffff'
+
+[colors.normal]
+black   = '#4b565c'
+red     = '#e67e80'
+green   = '#4ecd42'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan   =  '#8199cf'
+white   = '#d3c6aa'
+
+[colors.bright]
+black   = '#4b565c'
+red     = '#e67e80'
+green   = '#a7c080'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan    = '#83c092'
+white   = '#d3c6aa'
+
+[font]
+size = 10.0
+# Es vital usar una Nerd Font para ver iconos
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
